@@ -1,24 +1,4 @@
-// import React, { useState } from "react";
-// import ConverterLayout from "../../layout/ConverterLayout";
 
-// const PdfConverter = () => {
-
-//   return (
-//   <>
-  
-//   <ConverterLayout 
-  
-//      title=" Welcome to Easy Word to PDF Converter"
-//       description="Upload your Word file and convert it into PDF"
-//       buttonText="Convert to PDF"
-//       acceptType=".doc,.docx"
-//   />
-//   </>
-//   );
-
-// };
-
-// export default PdfConverter;
 
 import React, { useState } from "react";
 import axios from "axios";

@@ -55,10 +55,10 @@ const Text_Convert = () => {
 
         {/* Header */}
         <div className="text-center mb-6">
-          <h1 className="text-2xl font-bold">
+          <h1 className="text-xl sm:text-2xl md:text-4xl  font-semibold">
             Welcome to Text Case Converter
           </h1>
-          <p className="text-gray-500">
+          <p className=" text-xs sm:text-sm md:text-xl  text-gray-500">
             Paste your text and convert it as per your requirement.
           </p>
         </div>

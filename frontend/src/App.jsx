@@ -8,6 +8,7 @@ import PdfConverter from './Pages/Dashboard/WordToPdf'
 import TextConverter from './Pages/Dashboard/Text_Convert'
 import PdfToWord from './Pages/Dashboard/PdfToWord'
 import Url_Shortener from './Pages/Dashboard/Url_Shortener'
+import DefaultPage from './Pages/Dashboard/DefaultPage'
 
 
 
@@ -23,6 +24,10 @@ const App = () => {
         <Route path="/login" element={<LoginPage/>} />
 
         <Route path='/user-dashboard' element={<DashboardLayout/>}  >
+          
+  {/* 👇 This renders when path is EXACTLY /user-dashboard */}
+  <Route index element={<DefaultPage />} />
+
            <Route path='word_to_pdf' element={<PdfConverter/>}/>
            <Route path='pdf_to_word' element={<PdfToWord/>} />
            <Route path='url_shortener' element={<Url_Shortener/>} />
