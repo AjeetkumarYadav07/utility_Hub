@@ -54,7 +54,7 @@ const PasswordGenerator = () => {
           <span className="break-all">{password || "Your password..."}</span>
           <button
             onClick={copyPassword}
-            className="text-sm text-blue-600 font-medium"
+            className="text-sm text-blue-400 hover:text-blue-600 cursor-pointer font-medium"
           >
             {copied ? "Copied!" : "Copy"}
           </button>
@@ -94,7 +94,7 @@ const PasswordGenerator = () => {
         {/* Options */}
         <div className="space-y-2">
           {Object.keys(options).map((key) => (
-            <label key={key} className="flex items-center gap-2 text-sm">
+            <label key={key} className="flex  items-center gap-2 text-sm">
               <input
                 type="checkbox"
                 checked={options[key]}
@@ -113,7 +113,7 @@ const PasswordGenerator = () => {
         {/* Generate Button */}
         <button
           onClick={generatePassword}
-          className="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition"
+          className="w-full  text-white py-2 rounded-lg font-semibold cursor-pointer bg-purple-400 hover:bg-purple-500 transition"
         >
           Generate Now
         </button>

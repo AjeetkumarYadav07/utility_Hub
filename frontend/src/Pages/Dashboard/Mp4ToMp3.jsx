@@ -47,7 +47,7 @@ const Mp4ToMp3 = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-600 to-purple-700 p-4">
+    <section className=" flex items-center justify-center bg-gradient-to-br  p-4">
       <div className="w-full max-w-xl bg-white rounded-2xl shadow-2xl p-8 space-y-6">
 
         {/* Title */}
@@ -103,7 +103,7 @@ const Mp4ToMp3 = () => {
         {!converted && (
           <button
             onClick={handleConvert}
-            className="w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition"
+            className="w-full bg-purple-400 hover:bg-purple-500 cursor-pointer  text-white py-3 rounded-xl font-semibold  transition"
           >
             Convert Now
           </button>
@@ -112,12 +112,12 @@ const Mp4ToMp3 = () => {
         {/* Download & Cancel */}
         {converted && (
           <div className="flex gap-4">
-            <button className="flex-1 bg-green-600 text-white py-3 rounded-xl font-semibold hover:bg-green-700 transition">
+            <button className="flex-1 bg-green-600 cursor-pointer text-white py-3 rounded-xl font-semibold hover:bg-green-700 transition">
               Download MP3
             </button>
             <button
               onClick={handleCancel}
-              className="flex-1 bg-red-500 text-white py-3 rounded-xl font-semibold hover:bg-red-600 transition"
+              className="flex-1 bg-red-500 cursor-pointer text-white py-3 rounded-xl font-semibold hover:bg-red-600 transition"
             >
               Cancel
             </button>
