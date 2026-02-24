@@ -9,6 +9,8 @@ import TextConverter from './Pages/Dashboard/Text_Convert'
 import PdfToWord from './Pages/Dashboard/PdfToWord'
 import Url_Shortener from './Pages/Dashboard/Url_Shortener'
 import DefaultPage from './Pages/Dashboard/DefaultPage'
+import PasswordGenerator from './Pages/Dashboard/PasswordGenerator'
+import Mp4ToMp3 from './Pages/Dashboard/Mp4ToMp3'
 
 
 
@@ -25,13 +27,15 @@ const App = () => {
 
         <Route path='/user-dashboard' element={<DashboardLayout/>}  >
           
-  {/* 👇 This renders when path is EXACTLY /user-dashboard */}
-  <Route index element={<DefaultPage />} />
+              <Route index element={<DefaultPage />} />
 
            <Route path='word_to_pdf' element={<PdfConverter/>}/>
            <Route path='pdf_to_word' element={<PdfToWord/>} />
            <Route path='url_shortener' element={<Url_Shortener/>} />
            <Route path='text_convert' element={<TextConverter/> } />
+           <Route path='passwordGenerator' element={<PasswordGenerator/> } />
+           <Route path='mp4_to_mp3' element={<Mp4ToMp3/> } />
+           
         </Route>
       </Routes>
     </>
