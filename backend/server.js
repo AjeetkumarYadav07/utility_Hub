@@ -1,6 +1,6 @@
 const express = require("express") ;
 const cors = require("cors");
-const users = require("./users");
+
 const app = express();
 const PORT = 5000 ;
 
@@ -28,9 +28,6 @@ app.get("/" , (req , res) =>{
    return res.send("Welcome to server  ")
 });
 
-app.get("/api/users" , (req , res) =>{
-    return res.json(users);
-} ) 
 
 // Public redirect route (NO prefix)
 
