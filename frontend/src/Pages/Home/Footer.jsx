@@ -66,7 +66,7 @@ const Footer = () => {
 
         {/* ================= BOTTOM ================= */}
         <div className="text-center font-inter text-gray-700 pb-6 text-sm">
-          Powered By Drivebot © 2026
+          Powered By Utility Hub  ©2026
         </div>
       </div>
     </footer>
