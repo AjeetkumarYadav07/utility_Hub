@@ -5,7 +5,7 @@ const rateLimit = require("express-rate-limit");
 
 const createLimiter = (maxRequests = 10) => {
   return rateLimit({
-    windowMs: 24 * 60 * 60 * 1000,
+    windowMs: 5 * 60 * 1000, // 15 minutes 
     max: maxRequests,
 
     keyGenerator: (req) => {

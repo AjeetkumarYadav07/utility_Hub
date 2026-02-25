@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate  = useNavigate();
+
+     function getStart (){
+        const token  = localStorage.getItem("token")
+        navigate(token ? "/user-dashboard" : "/login")
+     }
+
   return (
     <section className="w-full bg-purple-100">
       <div className="max-w-[1220px] mx-auto px-5">
@@ -14,7 +22,7 @@ const Hero = () => {
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-lato font-bold leading-tight">
               All Your Essential Tools. One Simple Platform
             </h1>
-
+            
             <p className="text-gray-700 font-inter text-sm sm:text-lg md:text-xl max-w-xl mx-auto md:mx-0">
               Convert, compress, and transform files instantly — from Image to
               PDF, Word to PDF, Excel tools, text formatting, and more.
@@ -23,7 +31,9 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <div className="flex   sm:flex-row gap-4 justify-center md:justify-start pt-4">
-              <button className="px-6 py-3 font-semibold bg-purple-500 text-white rounded-md hover:bg-purple-600 transition">
+              <button 
+              onClick={getStart  }
+               className="px-6 py-3 font-semibold bg-purple-500 text-white rounded-md hover:bg-purple-600 transition">
                 Get Started
               </button>
 
