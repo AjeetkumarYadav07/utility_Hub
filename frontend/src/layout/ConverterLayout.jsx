@@ -92,7 +92,7 @@ const ConverterLayout = ({
           <button
             onClick={onConvert}
             disabled={loading}
-            className="px-8 py-3 bg-purple-400 text-white rounded-lg font-semibold hover:bg-purple-500 transition disabled:opacity-50"
+            className="px-8 py-3 bg-purple-400 text-white rounded-lg  cursor-pointer font-semibold hover:bg-purple-500 transition disabled:opacity-50"
           >
             {loading ? "Converting..." : buttonText}
           </button>

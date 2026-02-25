@@ -33,7 +33,7 @@ const Hero = () => {
             <div className="flex   sm:flex-row gap-4 justify-center md:justify-start pt-4">
               <button 
               onClick={getStart  }
-               className="px-6 py-3 font-semibold bg-purple-500 text-white rounded-md hover:bg-purple-600 transition">
+               className="px-6 py-3 font-semibold bg-purple-500 cursor-pointer  text-white rounded-md hover:bg-purple-600 transition">
                 Get Started
               </button>
 
