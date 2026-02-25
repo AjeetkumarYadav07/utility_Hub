@@ -86,6 +86,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         >
           Password Generator
         </NavLink>
+        
         <NavLink
           to="/user-dashboard/mp4_to_mp3"
           onClick={closeMenu}
@@ -94,6 +95,16 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
           }
         >
          Mp4 to Mp3 
+        </NavLink>
+
+        <NavLink
+          to="/user-dashboard/qr_generator"
+          onClick={closeMenu}
+          className={({ isActive }) =>
+            `${baseStyle} ${isActive ? activeStyle : inactiveStyle}`
+          }
+        >
+         Qr Generator 
         </NavLink>
       </nav>
     );

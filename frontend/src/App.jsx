@@ -11,6 +11,8 @@ import Url_Shortener from './Pages/Dashboard/Url_Shortener'
 import DefaultPage from './Pages/Dashboard/DefaultPage'
 import PasswordGenerator from './Pages/Dashboard/PasswordGenerator'
 import Mp4ToMp3 from './Pages/Dashboard/Mp4ToMp3'
+import QrGenerator from './Pages/Dashboard/QrGenerator'
+import PageNotFound from './Pages/PageNotFound'
 
 
 
@@ -35,8 +37,12 @@ const App = () => {
            <Route path='text_convert' element={<TextConverter/> } />
            <Route path='passwordGenerator' element={<PasswordGenerator/> } />
            <Route path='mp4_to_mp3' element={<Mp4ToMp3/> } />
+           <Route path='qr_generator' element={<QrGenerator/>} />
            
         </Route>
+
+        {/* Page not found  */}
+        <Route path='*' element={<PageNotFound/>} />
       </Routes>
     </>
   )
