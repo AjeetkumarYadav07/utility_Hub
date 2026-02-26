@@ -18,9 +18,9 @@ const Navbar = () => {
           {/* Desktop Menu */}
           <ul className="hidden md:flex gap-8 font-medium">
             <li className="cursor-pointer hover:text-purple-600 transition">Home</li>
-            <li className="cursor-pointer hover:text-purple-600 transition">About</li>
+            <a href="#about">  <li  className="cursor-pointer hover:text-purple-600 transition">About</li></a>
             <li className="cursor-pointer hover:text-purple-600 transition">Service</li>
-            <li className="cursor-pointer hover:text-purple-600 transition">Contact</li>
+              <a href="#footer"> <li className="cursor-pointer hover:text-purple-600 transition">Contact</li> </a>
           </ul>
 
           {/* Desktop Buttons */}

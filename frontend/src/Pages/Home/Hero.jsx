@@ -10,7 +10,7 @@ const Hero = () => {
      }
 
   return (
-    <section className="w-full bg-purple-100">
+    <section id="about" className="w-full bg-purple-100  ">
       <div className="max-w-[1220px] mx-auto px-5">
 
         {/* Grid Container */}
