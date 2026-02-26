@@ -1,55 +1,147 @@
-import React from "react";
+
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { FaFilePdf, FaTextHeight, FaUsers, FaLink, FaQrcode, FaKey, FaFileWord,  FaBirthdayCake,  FaRobot } from "react-icons/fa";
 
 const DefaultPage = () => {
+  const navigate = useNavigate();
+  const [activeFilter, setActiveFilter] = useState("All");
+
   const tools = [
     {
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-          <path fill="#b054e7" d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2m7 1.5V9h5.5z"/>
-        </svg>
-      ),
-      text: "PDF ➡️ Word",
+      title: "Word to PDF",
+      desc: "Convert Word documents to PDF instantly",
+      category: "PDF Tools",
+      icon: <FaFilePdf size={28} />,
+      path: "/user-dashboard/word_to_pdf",
     },
     {
-      icon: (
-       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256">
-        <path fill="#b054e7" d="M200 156c0 6.5-7.33 12-16 12s-16-5.5-16-12s7.33-12 16-12s16 5.5 16 12m32-100v144a16 16 0 0 1-16 16H40a16 16 0 0 1-16-16V56a16 16 0 0 1 16-16h176a16 16 0 0 1 16 16m-88.63 116.88l-44-104a8 8 0 0 0-14.74 0l-44 104a8 8 0 0 0 14.74 6.24L66.84 152h50.32l11.47 27.12a8 8 0 0 0 14.74-6.24M216 124c0-15.44-14.36-28-32-28a34.86 34.86 0 0 0-20.78 6.68a8 8 0 0 0 9.56 12.83A18.84 18.84 0 0 1 184 112c8.56 0 15.8 5.36 16 11.76v8a35.24 35.24 0 0 0-16-3.76c-17.64 0-32 12.56-32 28s14.36 28 32 28a35.1 35.1 0 0 0 16.93-4.26A8 8 0 0 0 216 176ZM73.61 136h36.78L92 92.53Z"/></svg>
-      ),
-      text: "Text Case Converter",
+      title: "Random User Generator",
+      desc: "Transform text into any case formatProvides fake realistic user profiles (name, email, address, photos, etc.) for demos/testing",
+      category: "Ai+ Tools",
+      icon: <FaUsers size={28} />,
+      path: "/user-dashboard/text_convert",
     },
     {
-      icon: (
-       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path fill="#b054e7" d="M10 14h12v4H10z"/>
-       <path fill="#b054e7" d="M12 22H9.562A5.57 5.57 0 0 1 4 16.438v-.876A5.57 5.57 0 0 1 9.562 10H12V6H9.562A9.56 9.56 0 0 0 0 15.562v.876A9.56 9.56 0 0 0 9.562 26H12ZM22.438 6H20v4h2.438A5.57 5.57 0 0 1 28 15.562v.876A5.57 5.57 0 0 1 22.438 22H20v4h2.438A9.56 9.56 0 0 0 32 16.438v-.876A9.56 9.56 0 0 0 22.438 6"/></svg>
-      ),
-      text: "URL Shortener",
+      title: "Text Case Converter",
+      desc: "Transform text into any case format",
+      category: "Text Tools",
+      icon: <FaTextHeight size={28} />,
+      path: "/user-dashboard/text_convert",
     },
     {
-      icon: (
-       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <path fill="none" stroke="#b054e7" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 12.999v-2.343c0-.818 0-1.226-.152-1.594c-.152-.367-.441-.656-1.02-1.235l-4.736-4.736c-.499-.499-.748-.748-1.058-.896a2 2 0 0 0-.197-.082c-.323-.114-.676-.114-1.381-.114c-3.245 0-4.868 0-5.967.886a4 4 0 0 0-.603.603C4 4.588 4 6.21 4 9.455v3.544m9-10.5v.5c0 2.828 0 4.243.879 5.121C14.757 9 16.172 9 19 9h.5m-3 8.001a1 1 0 0 1 1-1H19a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1m-1 0h1m-15 3v-6l2 3l2-3v6m2.5 0v-2.5m0 0v-3.5h1.75a1.75 1.75 0 1 1 0 3.5zm8.5-.5a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1h-1.5a1 1 0 0 1-1-1"/></svg>
-      ),
-      text: "MP4 ➡️ MP3",
+      title: "QR Generator",
+      desc: "Generate custom QR codes easily",
+      category: "Utility Tools",
+      icon: <FaQrcode size={28} />,
+      path: "/user-dashboard/qr_generator",
+    },
+    {
+      title: "URL Shortener",
+      desc: "Shorten long URLs quickly",
+      category: "Utility Tools",
+      icon: <FaLink size={28} />,
+      path: "/user-dashboard/url_shortener",
+    },
+    {
+      title: "Age Calculater",
+      desc: "Calculate your Age in  Years Days , or mintuee ",
+      category: "Utility Tools",
+      icon: < FaBirthdayCake size={28} />,
+      path: "/user-dashboard/url_shortener",
+    },
+   
+    {
+      title: "Password Generator",
+      desc: "Create secure random passwords",
+      category: "Utility Tools",
+      icon: <FaKey size={28} />,
+      path: "/user-dashboard/passwordGenerator",
+    },
+    {
+      title: "PDF to Word",
+      desc: "Convert PDF to Word Document instantly",
+      category: "PDF Tools",
+      icon: <FaFileWord size={28} />,
+      path: "/user-dashboard/pdf_to_word",
+    },
+    {
+      title: "AI PDF Summary",
+      desc: "Summarize PDF using AI",
+      category: "Ai+ Tools",
+      icon: <FaRobot size={28} />,
+      path: "/aiPdfSummary",
     },
   ];
 
-  return (
-    <section className="w-full px-4 py-6">
-      <div className="max-w-[900px] mx-auto">
-        
-        <h1 className="text-2xl md:text-3xl font-bold mb-6">
-          Most Used Tools
-        </h1>
+  const filters = ["All", "PDF Tools", "Text Tools", "Utility Tools", "Ai+ Tools"];
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {tools.map((tool, index) => (
+  const filteredTools =
+    activeFilter === "All"
+      ? tools
+      : tools.filter((tool) => tool.category === activeFilter);
+
+  return (
+    <section className="w-full px-6 py-10 bg-gray-50 min-h-screen">
+      <div className="max-w-6xl mx-auto">
+
+        {/* Heading */}
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold text-gray-800">
+            What We Do
+          </h1>
+          <p className="text-gray-500 mt-2">
+            Powerful online tools designed to boost your productivity.
+          </p>
+        </div>
+
+        {/* Filters */}
+        <div className="flex flex-wrap gap-3 mb-10">
+          {filters.map((filter) => (
+            <button
+              key={filter}
+              onClick={() => setActiveFilter(filter)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition
+                ${
+                  activeFilter === filter
+                    ? "bg-[#7C3AED] text-white shadow-md"
+                    : "bg-white border border-gray-300 hover:bg-purple-100"
+                }`}
+            >
+              {filter}
+            </button>
+          ))}
+        </div>
+
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          {filteredTools.map((tool, index) => (
             <div
               key={index}
-              className="bg-white border rounded-lg p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md hover:scale-105 transition duration-200 cursor-pointer"
+              onClick={() => navigate(tool.path)}
+              className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer group"
             >
-              <div className="mb-4">{tool.icon}</div>
-              <h2 className="font-semibold text-lg">{tool.text}</h2>
+              {/* Icon */}
+              <div className="w-14 h-14 flex items-center justify-center rounded-lg bg-purple-100 text-[#7C3AED] mb-4 group-hover:bg-[#7C3AED] group-hover:text-white transition">
+                {tool.icon}
+              </div>
+
+              {/* Title */}
+              <h2 className="text-lg font-semibold text-gray-800 mb-2">
+                {tool.title}
+              </h2>
+
+              {/* Description */}
+              <p className="text-gray-500 text-sm">
+                {tool.desc}
+              </p>
+
+              {/* Category Tag */}
+              <div className="mt-4">
+                <span className="text-xs px-3 py-1 bg-purple-50 text-[#7C3AED] rounded-full">
+                  {tool.category}
+                </span>
+              </div>
             </div>
           ))}
         </div>

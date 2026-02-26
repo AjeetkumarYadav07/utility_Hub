@@ -127,6 +127,7 @@ import { IoQrCodeOutline } from "react-icons/io5";
 import { MdOutlineLogout } from "react-icons/md";
 
 
+
 const Sidebar = ({ isOpen, setIsOpen }) => {
   const menuItems = [
     {name: "Home" , path:"/" , icons:<FaHome/>},
