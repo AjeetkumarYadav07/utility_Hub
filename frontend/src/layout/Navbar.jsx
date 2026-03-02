@@ -98,12 +98,12 @@ const Navbar = ({ setSidebarOpen }) => {
 
               <hr />
 
-              <button
+              {/* <button
                 onClick={handleLogout}
                 className="mt-3 text-red-400 hover:text-red-600 text-sm cursor-pointer "
               >
                 Logout
-              </button>
+              </button> */}
             </div>
           )}
         </div>

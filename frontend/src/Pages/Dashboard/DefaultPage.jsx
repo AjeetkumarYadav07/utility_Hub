@@ -20,7 +20,7 @@ const DefaultPage = () => {
       desc: "Transform text into any case formatProvides fake realistic user profiles (name, email, address, photos, etc.) for demos/testing",
       category: "Ai+ Tools",
       icon: <FaUsers size={28} />,
-      path: "/user-dashboard/text_convert",
+      path: "/user-dashboard/random_users_Generator",
     },
     {
       title: "Text Case Converter",
@@ -48,7 +48,7 @@ const DefaultPage = () => {
       desc: "Calculate your Age in  Years Days , or mintuee ",
       category: "Utility Tools",
       icon: < FaBirthdayCake size={28} />,
-      path: "/user-dashboard/url_shortener",
+      path: "/user-dashboard/age_Calculator",
     },
    
     {

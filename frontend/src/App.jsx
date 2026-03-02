@@ -13,6 +13,10 @@ import PasswordGenerator from './Pages/Dashboard/PasswordGenerator'
 import Mp4ToMp3 from './Pages/Dashboard/Mp4ToMp3'
 import QrGenerator from './Pages/Dashboard/QrGenerator'
 import PageNotFound from './Pages/PageNotFound'
+import AgeCalculator from './Pages/Dashboard/AgeCalculator'
+import RandomUserGenrator from './Pages/Dashboard/RandomUserGenerator'
+import RandomUserGenerator from './Pages/Dashboard/RandomUserGenerator'
+
 
 
 
@@ -35,8 +39,10 @@ const App = () => {
            <Route path='pdf_to_word' element={<PdfToWord/>} />
            <Route path='url_shortener' element={<Url_Shortener/>} />
            <Route path='text_convert' element={<TextConverter/> } />
+           <Route path='age_Calculator' element={<AgeCalculator/>} />
            <Route path='passwordGenerator' element={<PasswordGenerator/> } />
            <Route path='mp4_to_mp3' element={<Mp4ToMp3/> } />
+           <Route path='random_users_Generator' element={<RandomUserGenerator/>} />
            <Route path='qr_generator' element={<QrGenerator/>} />
            
         </Route>
