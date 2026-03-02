@@ -3,7 +3,8 @@ const router = express.Router() ;
 // const auth = require("../middleware/authMiddleware");
 const upload = require("../middleware/upload");
 const createLimiter = require("../middleware/rateLimiter");
-
+const videoupload  = require("../middleware/videoupload");
+const {convertFile} = require("../controllers/mp4tomp3Controller");
 const limiter = createLimiter(10);
 const {docxToPdf} = require("../controllers/docxToPdfController");
 const {pdfToDocxController} = require("../controllers/pdfToDocxController");
@@ -25,6 +26,10 @@ router.post(
     pdfToDocxController 
 
 )
+router.post(
+    "/mp4-to-mp3" ,
+    videoupload.single("video"),convertFile
+);
 
 
 module.exports = router 

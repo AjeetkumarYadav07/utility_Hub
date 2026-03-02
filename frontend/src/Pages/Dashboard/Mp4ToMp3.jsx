@@ -1,20 +1,27 @@
+
 import React, { useState, useRef } from "react";
+import axios from "axios";
 
 const Mp4ToMp3 = () => {
   const [file, setFile] = useState(null);
   const [dragging, setDragging] = useState(false);
   const [progress, setProgress] = useState(0);
   const [converted, setConverted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const inputRef = useRef();
 
   const handleFile = (selectedFile) => {
     if (!selectedFile) return;
+
     if (selectedFile.type !== "video/mp4") {
       alert("Only MP4 files allowed");
       return;
     }
+
     setFile(selectedFile);
+    setConverted(false);
+    setProgress(0);
   };
 
   const handleDrop = (e) => {
@@ -23,33 +30,75 @@ const Mp4ToMp3 = () => {
     handleFile(e.dataTransfer.files[0]);
   };
 
-  const handleConvert = () => {
+  const handleConvert = async () => {
     if (!file) return alert("Upload file first");
 
-    // Fake progress simulation (replace with real API call)
-    setProgress(0);
-    let interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setConverted(true);
-          return 100;
+    const formData = new FormData();
+    formData.append("video", file);
+
+    try {
+      setLoading(true);
+      setProgress(0);
+      setConverted(false);
+
+      const response = await axios.post(
+        "http://localhost:5000/services/mp4-to-mp3",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          responseType: "blob",
+          onUploadProgress: (progressEvent) => {
+            const percent = Math.round(
+              (progressEvent.loaded * 100) / progressEvent.total
+            );
+            setProgress(percent);
+          },
         }
-        return prev + 10;
-      });
-    }, 300);
+      );
+
+      // Create download link
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "converted.mp3");
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+
+      setConverted(true);
+    } catch (error) {
+      if (error.response?.data) {
+        const reader = new FileReader();
+        reader.onload = () => {
+          try {
+            const err = JSON.parse(reader.result);
+            alert(err.error);
+          } catch {
+            alert("Conversion failed");
+          }
+        };
+        reader.readAsText(error.response.data);
+      } else {
+        alert("Server error");
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleCancel = () => {
     setFile(null);
     setProgress(0);
     setConverted(false);
+    setLoading(false);
   };
 
   return (
-    <section className=" flex items-center justify-center bg-gradient-to-br  p-4">
+    <section className="flex items-center justify-center bg-gradient-to-br p-4 min-h-screen">
       <div className="w-full max-w-xl bg-white rounded-2xl shadow-2xl p-8 space-y-6">
-
+        
         {/* Title */}
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-800">
@@ -103,23 +152,25 @@ const Mp4ToMp3 = () => {
         {!converted && (
           <button
             onClick={handleConvert}
-            className="w-full bg-purple-400 hover:bg-purple-500 cursor-pointer  text-white py-3 rounded-xl font-semibold  transition"
+            disabled={loading}
+            className={`w-full py-3 rounded-xl font-semibold text-white transition ${
+              loading
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-purple-500 hover:bg-purple-600"
+            }`}
           >
-            Convert Now
+            {loading ? "Converting..." : "Convert Now"}
           </button>
         )}
 
         {/* Download & Cancel */}
         {converted && (
           <div className="flex gap-4">
-            <button className="flex-1 bg-green-600 cursor-pointer text-white py-3 rounded-xl font-semibold hover:bg-green-700 transition">
-              Download MP3
-            </button>
             <button
               onClick={handleCancel}
-              className="flex-1 bg-red-500 cursor-pointer text-white py-3 rounded-xl font-semibold hover:bg-red-600 transition"
+              className="flex-1 bg-blue-500 text-white py-3 rounded-xl font-semibold hover:bg-blue-600 transition"
             >
-              Cancel
+              Convert Another
             </button>
           </div>
         )}
