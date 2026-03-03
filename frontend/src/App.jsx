@@ -16,6 +16,7 @@ import PageNotFound from './Pages/PageNotFound'
 import AgeCalculator from './Pages/Dashboard/AgeCalculator'
 import RandomUserGenrator from './Pages/Dashboard/RandomUserGenerator'
 import RandomUserGenerator from './Pages/Dashboard/RandomUserGenerator'
+import MathsFormulas from './Pages/Dashboard/MathsFormulas'
 
 
 
@@ -44,6 +45,7 @@ const App = () => {
            <Route path='mp4_to_mp3' element={<Mp4ToMp3/> } />
            <Route path='random_users_Generator' element={<RandomUserGenerator/>} />
            <Route path='qr_generator' element={<QrGenerator/>} />
+           <Route path='maths_formula_Generator' element={<MathsFormulas/>} />
            
         </Route>
 

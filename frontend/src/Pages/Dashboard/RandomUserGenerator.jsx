@@ -84,6 +84,7 @@ const RandomUserGenerator = () => {
             type="number"
             value={count}
             onChange={(e) => setCount(Number(e.target.value))}
+            onKeyDown={(e) => e.key === "Enter" && fetchUsers()  }
             min={1}
             max={100}
             className="border rounded-xl px-4 py-2 w-full sm:w-32 focus:outline-none focus:ring-2 focus:ring-purple-500"

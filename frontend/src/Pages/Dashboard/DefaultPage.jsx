@@ -70,7 +70,7 @@ const DefaultPage = () => {
       desc: "Summarize PDF using AI",
       category: "Ai+ Tools",
       icon: <FaRobot size={28} />,
-      path: "/aiPdfSummary",
+      path: "/user-dashboard/maths_formula_Generator",
     },
   ];
 
