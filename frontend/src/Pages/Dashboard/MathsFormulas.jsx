@@ -178,6 +178,7 @@ const MathsFormulas = () => {
               <input
                 type="text"
                 placeholder="e.g. area of circle"
+                maxLength={40}
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleGenerate()}
