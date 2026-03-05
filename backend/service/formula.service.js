@@ -1,8 +1,8 @@
 const callGemini = require("./gemini.service");
-const buildFormulaPrompt = require("../utils/buildPrompt");
+// const buildFormulaPrompt = require("../utils/buildPrompt");
 
 const generateFormula = async (query) => {
-  const prompt = buildFormulaPrompt(query);
+  // const prompt = buildFormulaPrompt(query);
 
   const rawText = await callGemini(prompt);
 
@@ -19,3 +19,33 @@ const generateFormula = async (query) => {
 };
 
 module.exports = generateFormula;
+
+// const callGemini = require("./gemini.service");
+// const buildFormulaPrompt = require("../utils/buildPrompt");
+
+// const generateFormula = async (query) => {
+//   const prompt = buildFormulaPrompt(query);
+
+//   const rawText = await callGemini(prompt);
+
+//   try {
+//     const parsed = JSON.parse(rawText);
+
+//     return {
+//       formula: parsed.formula || "",
+//       explanation: parsed.explanation || "",
+//       example: parsed.example || ""
+//     };
+
+//   } catch (error) {
+//     console.error("JSON Parse Error:", rawText);
+
+//     return {
+//       formula: "",
+//       explanation: "",
+//       example: ""
+//     };
+//   }
+// };
+
+// module.exports = generateFormula;

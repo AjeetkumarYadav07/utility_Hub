@@ -1,7 +1,8 @@
 
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaFilePdf, FaTextHeight, FaUsers, FaLink, FaQrcode, FaKey, FaFileWord,  FaBirthdayCake,  FaRobot } from "react-icons/fa";
+import { FaFilePdf, FaTextHeight, FaUsers, FaLink, FaQrcode, FaKey, FaFileWord,  FaBirthdayCake  } from "react-icons/fa";
+import { RiFormula } from "react-icons/ri";
 
 const DefaultPage = () => {
   const navigate = useNavigate();
@@ -66,10 +67,10 @@ const DefaultPage = () => {
       path: "/user-dashboard/pdf_to_word",
     },
     {
-      title: "AI PDF Summary",
-      desc: "Summarize PDF using AI",
+      title: "AI Maths Formula Generator",
+      desc: "Ask Any Math Forumla , short and Easy Explianation , Best and short example.",
       category: "Ai+ Tools",
-      icon: <FaRobot size={28} />,
+      icon: <RiFormula size={26} />,
       path: "/user-dashboard/maths_formula_Generator",
     },
   ];
