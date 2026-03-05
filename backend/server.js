@@ -85,6 +85,7 @@ mongoconnect(process.env.MONGODB_URI)
 const authRoutes = require("./routes/auth");
 const servicesRoutes = require("./routes/servicesRoutes");
 const urlRoutes = require("./routes/urlRoutes");
+const { redirectController } = require("./controllers/urlController");
 
 app.use("/auth", authRoutes);
 app.use("/services", servicesRoutes);
