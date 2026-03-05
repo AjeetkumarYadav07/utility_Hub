@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import axios from "axios";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const Url_Shortener = () => {
   const [url, setUrl] = useState("");
@@ -21,7 +22,7 @@ const Url_Shortener = () => {
       setShortUrl("");
 
       const response = await axios.post(
-        "http://localhost:5000/url/create",
+        `${API_BASE_URL}/url/create`,
         {
           originalUrl: url,
         }

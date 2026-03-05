@@ -1,6 +1,7 @@
 // src/components/GoogleLoginButton.jsx
 import { GoogleLogin } from "@react-oauth/google";
 import axios from "axios";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 import { useNavigate } from "react-router-dom";
 
 const GoogleLoginButton = ({ redirectTo = "/user-dashboard" }) => {
@@ -9,7 +10,7 @@ const GoogleLoginButton = ({ redirectTo = "/user-dashboard" }) => {
   const handleLogin = async (credentialResponse) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/auth/google", // your backend endpoint
+        `${API_BASE_URL}/auth/google`,
         { token: credentialResponse.credential }
       );
 

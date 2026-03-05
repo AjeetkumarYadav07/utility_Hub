@@ -1,4 +1,5 @@
 import axios from "axios";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import GoogleLoginButton from "./GoogleLoginButton";
@@ -38,7 +39,7 @@ const LoginPage = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/auth/loginUser",
+        `${API_BASE_URL}/auth/loginUser`,
         { email, password }
       );
 

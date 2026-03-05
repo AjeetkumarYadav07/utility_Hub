@@ -1,6 +1,7 @@
 
 import React, { useState, useRef } from "react";
 import axios from "axios";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const Mp4ToMp3 = () => {
   const [file, setFile] = useState(null);
@@ -42,7 +43,7 @@ const Mp4ToMp3 = () => {
       setConverted(false);
 
       const response = await axios.post(
-        "http://localhost:5000/services/mp4-to-mp3",
+        `${API_BASE_URL}/services/mp4-to-mp3`,
         formData,
         {
           headers: {

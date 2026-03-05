@@ -1,9 +1,8 @@
 
-
-
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 import GoogleLoginButton from "./GoogleLoginButton";
 
 const RegisterPage = () => {
@@ -32,8 +31,7 @@ const RegisterPage = () => {
 
     try {
       const response = await axios.post(
-        // "http://localhost:5000/auth/register",
-        "https://utility-hub-backend-e5di.onrender.com",
+        `${API_BASE_URL}/auth/register`,
         { name, email, password }
       );
 

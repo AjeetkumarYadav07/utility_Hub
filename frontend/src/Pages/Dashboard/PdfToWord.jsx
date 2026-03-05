@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 import ConverterLayout from "../../layout/ConverterLayout";
 
 const PdfToWord = () => {
@@ -25,7 +26,7 @@ const PdfToWord = () => {
       formData.append("file", file);
 
       const response = await axios.post(
-        "http://localhost:5000/services/pdf-to-word",
+        `${API_BASE_URL}/services/pdf-to-word`,
         formData,
         {
           responseType: "blob", // VERY IMPORTANT
