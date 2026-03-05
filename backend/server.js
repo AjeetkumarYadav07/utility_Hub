@@ -61,7 +61,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://your-frontend-domain.vercel.app"
+      "https://utility-hub-frontend.onrender.com"
     ],
     credentials: true
   })
