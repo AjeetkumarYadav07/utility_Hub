@@ -1,22 +1,26 @@
-const express = require("express") ;
+
+require('dotenv').config();
+const express = require("express");
 const cors = require("cors");
 
+
 const app = express();
-const PORT = 5000 ;
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-const helmet = require("helmet");
+const helmet = require("helmet"); 
 app.use(helmet());
 
 
 
-const {mongoconnect} = require("./connection");
 
-//connection 
-mongoconnect("mongodb+srv://ajeetchoudharyoffical2005_db_user:Vcg5Qfb2jItDufwV@cluster0.bqnbmi9.mongodb.net/?appName=Cluster0")
-.then(() => console.log("Mongodb is connected"))
+const { mongoconnect } = require("./connection");
+// Connect using environment variable
+mongoconnect(process.env.MONGODB_URI)
+    .then(() => console.log("Mongodb is connected"));
+
 
 const authRoutes = require("./routes/auth");
 const servicesRoutes = require("./routes/servicesRoutes");
@@ -39,6 +43,7 @@ app.get("/u/:shortCode", redirectController);
 
 
 
-app.listen(PORT , ()=>{
-    console.log(`port is runnning on port no : ${PORT} `)
-})
+
+app.listen(PORT, () => {
+    console.log(`Server running on port: ${PORT}`);
+});

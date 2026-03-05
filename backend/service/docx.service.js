@@ -1,29 +1,4 @@
-// const mammoth = require("mammoth")
-// const PDFDocument = require("pdfkit");
 
-// async function convertDocxBufferToPdf(buffer) {
-//   // Convert docx to HTML
-//   const result = await mammoth.convertToHtml({ buffer });
-
-//   const html = result.value;
-
-//   return new Promise((resolve, reject) => {
-//     const doc = new PDFDocument();
-//     const chunks = [];
-
-//     doc.on("data", (chunk) => chunks.push(chunk));
-//     doc.on("end", () => {
-//       resolve(Buffer.concat(chunks));
-//     });
-
-//     doc.text(html);
-//     doc.end();
-//   });
-// }
-
-// module.exports = {
-//   convertDocxBufferToPdf,
-// };
 
 const mammoth = require("mammoth");
 const puppeteer = require("puppeteer");

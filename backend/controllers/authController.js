@@ -8,6 +8,7 @@ const registerUser = async (req , res) => {
        
         const {name , email , password} = req.body;
 
+        require('dotenv').config();
         //check user in db 
         const existingUser = await User.findOne({email});
         if(existingUser)
@@ -62,15 +63,13 @@ const googleAuth = async (req, res) => {
       return res.status(400).json({ message: "No token provided" });
     }
 
-    const GOOGLE_CLIENT_ID =
-      "407778628135-62ajtgk711224pv3v7svjbi3lfdj2ths.apps.googleusercontent.com";
-
-    const client = new OAuth2Client(GOOGLE_CLIENT_ID);
+  
+const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID, process.env.GOOGLE_CLIENT_SECRET);
 
     // ✅ FIX IS HERE
-    const ticket = await client.verifyIdToken({
+    const ticket = await googleClient.verifyIdToken({
       idToken: token,
-      audience: GOOGLE_CLIENT_ID, // MUST be the string
+      audience: process.env.GOOGLE_CLIENT_ID, // MUST be the string
     });
 
     const payload = ticket.getPayload();

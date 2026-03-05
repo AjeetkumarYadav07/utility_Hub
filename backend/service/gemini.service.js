@@ -1,13 +1,12 @@
 
-
+require('dotenv').config();
 const axios = require("axios");
 
 const callGemini = async (query) => {
-  // const apiKey = process.env.GEMINI_API_KEY;
-   const apiKey = "AIzaSyDfwjcUPNtIa_RyEK4cYVY-8Vm15VidNps";
+  
+   const apiKey = process.env.GEMINI_API_KEY;
   const model = "gemini-3.1-flash-lite-preview";
   // const model = "gemini-3-flash-preview";
-
 
 const prompt = `
 User request: ${query}
