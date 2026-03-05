@@ -32,7 +32,8 @@ const RegisterPage = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/auth/register",
+        // "http://localhost:5000/auth/register",
+        "https://utility-hub-backend-e5di.onrender.com",
         { name, email, password }
       );
 
