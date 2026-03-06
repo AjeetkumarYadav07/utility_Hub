@@ -53,6 +53,10 @@ app.use("/url", urlRoutes);
 // public redirect
 app.get("/u/:shortCode", redirectController);
 
+// health route
+app.get("/", (req, res) => {
+  res.send("Utility Hub Backend Running 🚀");
+});
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
